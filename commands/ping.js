@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(interaction) {
         const sent = await interaction.reply({
-            content: 'Pinging...',
+            content: 'Mengukur...',
             fetchReply: true
         });
         const ping = sent.createdTimestamp - interaction.createdTimestamp;
