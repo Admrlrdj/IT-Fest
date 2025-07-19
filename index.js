@@ -26,8 +26,21 @@ for (const file of commandFiles) {
     }
 }
 
-client.once(Events.ClientReady, c => {
+client.once(Events.ClientReady, async c => {
     console.log(`✅ Bot login sebagai ${c.user.tag}`);
+
+    // Kirim DM otomatis ke owner
+    const ownerId = process.env.OWNER_ID;
+    try {
+        const user = await client.users.fetch(ownerId);
+        const waktu = new Date().toLocaleString('id-ID', {
+            timeZone: 'Asia/Jakarta'
+        });
+        await user.send(`✅ Bot *${c.user.tag}* berhasil dideploy pada ${waktu}.`);
+        console.log('📬 Notifikasi DM berhasil dikirim ke owner.');
+    } catch (err) {
+        console.error('❌ Gagal kirim DM ke owner:', err);
+    }
 });
 
 client.on(Events.InteractionCreate, async interaction => {
