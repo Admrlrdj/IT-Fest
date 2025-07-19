@@ -20,8 +20,8 @@ for (const file of commandFiles) {
 const rest = new REST().setToken(process.env.TOKEN);
 
 const CLIENT_ID = process.env.CLIENT_ID;
-// const GUILD_ID = process.env.GUILD_ID;
-// const IT_FEST = process.env.IT_FEST;
+const GUILD_ID = process.env.GUILD_ID;
+const IT_FEST = process.env.IT_FEST;
 
 (async () => {
     try {
