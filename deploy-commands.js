@@ -19,18 +19,18 @@ for (const file of commandFiles) {
 
 const rest = new REST().setToken(process.env.TOKEN);
 const CLIENT_ID = process.env.CLIENT_ID;
+const GUILD_ID = process.env.GUILD_ID;
 
 (async () => {
     try {
-        console.log('🌐 Men-deploy global command...');
+        console.log('🚀 Men-deploy command ke server IT Fest...');
         await rest.put(
-            Routes.applicationCommands(CLIENT_ID), // global route
-            {
+            Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
                 body: commands
             }
         );
-        console.log('✅ Semua command berhasil didaftarkan secara global.');
+        console.log('✅ Command berhasil didaftarkan ke IT Fest!');
     } catch (error) {
-        console.error('❌ Error saat deploy global:', error);
+        console.error('❌ Error saat deploy:', error);
     }
 })();
