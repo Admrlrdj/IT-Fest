@@ -19,8 +19,8 @@ for (const file of commandFiles) {
 
 const rest = new REST().setToken(process.env.TOKEN);
 
-const CLIENT_ID = '1395802110788108441';
-const GUILD_ID = '1173481301446250606';
+const CLIENT_ID = process.env.CLIENT_ID;
+const GUILD_ID = process.env.GUILD_ID;
 
 (async () => {
     try {
